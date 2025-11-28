@@ -92,6 +92,37 @@ body {
   animation: neon-flicker 4.2s infinite;
 }
 
+@keyframes retro-neon-flicker {
+  /* Stable state - mostly on */
+  0%, 20%, 25%, 28%, 60%, 65%, 68%, 98%, 100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1) blur(0px);
+  }
+  /* Brief dim moments */
+  21%, 26%, 29%, 61%, 66%, 69% {
+    opacity: 0.7;
+    transform: translate(0.2px, 0.1px) scale(0.998);
+    filter: brightness(0.6) blur(0.3px);
+  }
+  /* Quick recovery surge */
+  22%, 27%, 30%, 62%, 67%, 70% {
+    opacity: 1.05;
+    transform: translate(-0.1px, -0.1px) scale(1.002);
+    filter: brightness(1.2) blur(0px);
+  }
+  /* Micro-flickers */
+  5%, 10%, 15%, 45%, 50%, 55%, 85%, 90%, 95% {
+    opacity: 0.92;
+    transform: translate(0.1px, 0.05px) scale(1.001);
+    filter: brightness(0.9) blur(0.1px);
+  }
+}
+
+.retro-neon-flicker {
+  animation: retro-neon-flicker 5s infinite;
+}
+
 .neon-spark {
   animation: neon-spark 2s infinite;
 }
@@ -128,6 +159,83 @@ body {
   animation-delay: 1.4s;
 }
 
+@keyframes radar-sweep {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes location-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.radar-sweep {
+  animation: radar-sweep 8s linear infinite;
+}
+
+.location-pulse {
+  animation: location-pulse 2s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(75, 225, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .neon-flicker {
     animation: none;
@@ -138,8 +246,51 @@ body {
       0 0 18px rgba(0, 255, 243, 0.6),
       0 0 35px rgba(10, 102, 255, 0.7);
   }
+  .retro-neon-flicker {
+    animation: none;
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    filter: brightness(1) blur(0px);
+  }
   .neon-spark {
     animation: none;
     display: none;
   }
+  .radar-sweep {
+    animation: none;
+  }
+  .location-pulse {
+    animation: none;
+  }
+  .fade-up {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .shimmer {
+    animation: none;
+  }
+  .divider-breathe {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* Divider Breathing Effect */
+@keyframes divider-breathe {
+  0%, 100% {
+    opacity: 0.4;
+    width: 96px;
+    box-shadow: 0 0 8px rgba(75, 225, 255, 0.3), 0 0 16px rgba(75, 225, 255, 0.2);
+  }
+  50% {
+    opacity: 0.8;
+    width: 120px;
+    box-shadow: 0 0 12px rgba(75, 225, 255, 0.6), 0 0 24px rgba(75, 225, 255, 0.4);
+  }
+}
+
+.divider-breathe {
+  animation: divider-breathe 4s ease-in-out infinite;
+  transition: all 0.3s ease;
 }
