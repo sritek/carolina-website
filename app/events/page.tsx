@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 
 type EventItem = {
   id: string;
@@ -133,8 +132,9 @@ export default function EventsPage() {
       setToast("Thanks — our events team will contact you within 24 hours.");
       setForm({ name: "", email: "", phone: "", datePreferred: "", headcount: "", message: "" });
       setSelected(null);
-    } catch (err: any) {
-      setToast(err?.message || "Failed to send inquiry.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send inquiry.";
+      setToast(message);
     } finally {
       setLoading(false);
       setTimeout(() => setToast(""), 5000);
@@ -149,7 +149,7 @@ export default function EventsPage() {
           Events & Private Dining
         </h1>
         <p className="max-w-2xl mx-auto mt-3 text-neutral-300">
-          Celebrate with thoughtful menus and curated service. From intimate chef's tables to fully
+          Celebrate with thoughtful menus and curated service. From intimate chef&apos;s tables to fully
           catered events.
         </p>
       </div>

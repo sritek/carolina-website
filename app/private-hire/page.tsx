@@ -100,8 +100,9 @@ export default function ServicesPage() {
         budget: "",
         message: "",
       });
-    } catch (err: any) {
-      setToast({ type: "error", text: err.message || "Failed to send inquiry" });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to send inquiry";
+      setToast({ type: "error", text: message });
     } finally {
       setLoading(false);
       setTimeout(() => setToast(null), 5000);
@@ -170,7 +171,7 @@ export default function ServicesPage() {
         <h3 className="text-xl font-semibold text-white">Sample — Private Dining Package</h3>
         <div className="mt-3 grid gap-4 md:grid-cols-3">
           <div>
-            <h4 className="text-sm text-emerald-300 uppercase">What's included</h4>
+            <h4 className="text-sm text-emerald-300 uppercase">What&apos;s included</h4>
             <ul className="mt-2 text-sm text-neutral-300 space-y-1">
               <li>Welcome canapés & amuse-bouche</li>
               <li>5-course prix-fixe menu (seasonal)</li>
@@ -242,8 +243,8 @@ export default function ServicesPage() {
 
           <div className="rounded-2xl border border-white/8 bg-black/30 p-6 mb-6">
             <h4 className="text-sm text-emerald-300 font-semibold">Testimonials</h4>
-            <blockquote className="mt-3 text-neutral-300 italic">"Our company retreat was flawless — food and service were exceptional." — Acme Corp</blockquote>
-            <blockquote className="mt-3 text-neutral-300 italic">"The chef's table was the highlight of our wedding weekend." — S & R</blockquote>
+            <blockquote className="mt-3 text-neutral-300 italic">&ldquo;Our company retreat was flawless — food and service were exceptional.&rdquo; — Acme Corp</blockquote>
+            <blockquote className="mt-3 text-neutral-300 italic">&ldquo;The chef&apos;s table was the highlight of our wedding weekend.&rdquo; — S & R</blockquote>
           </div>
 
           <div className="rounded-2xl border border-white/8 bg-black/30 p-6">

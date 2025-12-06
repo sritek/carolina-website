@@ -326,7 +326,7 @@ export default function HomePage() {
             Carolina, The Luminary Lounge
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-neutral-300 leading-relaxed mb-4">
-            Carolina's lounge flows from espresso-lit mornings into late-night neon frequencies. Our team curates
+            Carolina&apos;s lounge flows from espresso-lit mornings into late-night neon frequencies. Our team curates
             chef residencies, kinetic soundscapes, and a service ritual infused with hospitality for creatives,
             families, and the late-night crowd alike.
           </p>
@@ -523,7 +523,7 @@ export default function HomePage() {
             ].map((item, idx) => (
               <div key={idx} className="fade-up rounded-lg border border-green-400/20 bg-black/40 p-6 transition-all hover:border-green-400/40 hover:shadow-[0_0_15px_rgba(74,222,128,0.16)]">
                 <div className="mb-3 flex gap-1">{[...Array(item.rating)].map((_, i) => (<span key={i} className="text-green-400">★</span>))}</div>
-                <p className="mb-4 text-sm text-neutral-300 sm:text-base">"{item.review}"</p>
+                <p className="mb-4 text-sm text-neutral-300 sm:text-base">&ldquo;{item.review}&rdquo;</p>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-400 sm:text-sm">{item.name}</p>
               </div>
             ))}
@@ -628,7 +628,7 @@ export default function HomePage() {
       <section className="border-t border-neon-teal/20 bg-black px-4 py-12 sm:px-6 sm:py-16">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="mb-4 text-2xl font-semibold text-white sm:text-3xl md:text-4xl">Ready for your night at Carolina?</h2>
-          <p className="mb-8 text-sm text-neutral-400 sm:text-base">Reserve your table and experience Jaipur's most luminous rooftop lounge.</p>
+          <p className="mb-8 text-sm text-neutral-400 sm:text-base">Reserve your table and experience Jaipur&apos;s most luminous rooftop lounge.</p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <NeonButton className="w-full border border-neon-pink/80 bg-black/40 px-10 py-3 text-sm font-semibold uppercase tracking-[0.32em] text-neon-pink shadow-[0_0_25px_rgba(255,75,255,0.22)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto" href="/reservations">

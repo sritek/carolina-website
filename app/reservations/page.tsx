@@ -35,8 +35,10 @@ export default function ReservationsPage() {
       });
       const data = await res.json();
       setCheckingResult(data);
-    } catch (err: any) {
-      setError("Failed to check availability. Try again.");
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Failed to check availability. Try again.";
+      setError(message);
     } finally {
       setChecking(false);
     }
@@ -66,8 +68,9 @@ export default function ReservationsPage() {
         throw new Error(data?.message || "Failed to create reservation");
       }
       setConfirmation({ id: data.reservationId, when: `${date} ${time}` });
-    } catch (err: any) {
-      setError(err.message || "Failed to submit reservation");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Failed to submit reservation";
+      setError(message);
     } finally {
       setSubmitting(false);
     }

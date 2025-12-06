@@ -35,8 +35,9 @@ export default function ContactPage() {
       }
       setToast({ type: "ok", text: "Thanks — your message has been sent." });
       setForm({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch (err: any) {
-      setToast({ type: "error", text: err.message || "Unable to send message." });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Unable to send message.";
+      setToast({ type: "error", text: message });
     } finally {
       setLoading(false);
       setTimeout(() => setToast(null), 5000);
