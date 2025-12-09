@@ -193,9 +193,9 @@ export default function HomePage() {
                 </div>
               </div> */}
 
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.45em] text-green-500 mb-2 sm:mb-3">
+              {/* <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.45em] text-green-500 mb-2 sm:mb-3">
                 The most
-              </p>
+              </p> */}
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4">
                 <span style={{ color: "#fff", textShadow: "0 0 10px rgba(75,225,255,0.75), 0 0 25px rgba(255,75,255,0.18)" }}>
@@ -276,9 +276,9 @@ export default function HomePage() {
           <div className="relative z-20 flex min-h-[calc(100vh-120px)] flex-col justify-between px-4 pb-16 pt-4 sm:px-6 sm:pb-20 md:px-8 lg:px-16 lg:pt-2">
             <div className="flex flex-1 flex-col gap-6 sm:gap-8 md:flex-row md:items-start">
               <div className="max-w-xl pl-6 pt-4 sm:pt-6 md:pt-10 lg:pt-16">
-                <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.5em] text-green-500 mb-3 sm:mb-4">
+                {/* <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.5em] text-green-500 mb-3 sm:mb-4">
                   The most
-                </p>
+                </p> */}
 
                 <h1 className="retro-neon-flicker text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-3 sm:mb-4">
                   <span
