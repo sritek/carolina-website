@@ -41,22 +41,20 @@ export default function HomePage() {
               <span className="hidden font-semibold text-white sm:block">Carolina</span>
             </Link> */}
 
-            <div className="mb-4 block md:hidden">
-                <div className="relative select-none text-left">
-                  <span
-                    className="neon-flicker text-2xl font-bold tracking-[0.12em] uppercase text-white"
-                    style={{
-                      fontFamily: "var(--font-geist-sans), system-ui, sans-serif",
-                      textShadow: "0 0 8px rgba(10,102,255,0.8), 0 0 18px rgba(0,255,243,0.6)",
-                    }}
-                  >
-                    CAROLINA
-                  </span>
-                  <div className="mt-0 text-[8px] tracking-[0.18em] uppercase text-green-400" style={{ textShadow: "0 0 4px rgba(74,222,128,0.5)" }}>
-                    LUMINARY LOUNGE
-                  </div>
+            <div className="mb-2 block pt-3 md:hidden">
+              <Link href="/" className="flex items-center pl-0" aria-label="Carolina home">
+                <div className="relative h-9 w-[170px] overflow-hidden sm:h-10 sm:w-[190px]">
+                  <Image
+                    src="/carolina logo .png"
+                    alt="Carolina · The Luminary Lounge"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 170px, 190px"
+                    priority
+                  />
                 </div>
-              </div>
+              </Link>
+            </div>
 
             {/* Desktop nav kept hidden here (we will render the original laptop header below for lg) */}
             <nav className="hidden items-center gap-6 text-xs sm:flex sm:text-sm text-neutral-100/80 lg:hidden">
@@ -100,9 +98,18 @@ export default function HomePage() {
             This is the navigation you supplied; visible for large screens only
            --------------------------- */}
         <header className="hidden lg:flex relative z-20 flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-16">
-          <span className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-neon-teal drop-shadow-[0_0_8px_rgba(75,225,255,0.5)]">
-            CAROLINA · THE LUMINARY LOUNGE
-          </span>
+            <div className="flex items-center">
+              <div className="relative h-10 w-[195px] overflow-hidden sm:h-11 sm:w-[280px] md:h-16 md:w-[340px]">
+              <Image
+                src="/carolina logo .png"
+                alt="Carolina · The Luminary Lounge"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 640px) 360px, (max-width: 1024px) 520px, 640px"
+                priority
+              />
+            </div>
+          </div>
           <nav className="flex flex-col gap-3 sm:flex-row sm:gap-6 md:gap-8 text-xs sm:text-sm font-medium text-neutral-100/80">
             {primaryNav.map((item) => (
               <Link
@@ -132,9 +139,17 @@ export default function HomePage() {
           >
             <div className="p-4">
               <div className="mb-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-2" onClick={() => setDrawerOpen(false)}>
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-emerald-300" />
-                  <span className="font-semibold text-white">Carolina</span>
+                <Link href="/" className="flex items-center" onClick={() => setDrawerOpen(false)} aria-label="Carolina home">
+                  <div className="relative h-10 w-[190px] overflow-hidden">
+                    <Image
+                      src="/carolina logo .png"
+                      alt="Carolina · The Luminary Lounge"
+                      fill
+                      className="object-cover object-center"
+                      sizes="190px"
+                      priority
+                    />
+                  </div>
                 </Link>
                 <button onClick={() => setDrawerOpen(false)} aria-label="Close menu" className="text-neutral-300">✕</button>
               </div>
@@ -194,7 +209,7 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold leading-tight mb-3 sm:mb-4">
-                <span style={{ color: "#fff", textShadow: "0 0 10px rgba(75,225,255,0.75), 0 0 25px rgba(255,75,255,0.18)" }}>
+                <span style={{ color: "#fff", textShadow: "0 0 10px rgba(75,225,255,0.75), 0 0 25px rgba(92,255,181,0.18)" }}>
                   Carolina Luminary Lounge
                 </span>
               </h1>
@@ -210,7 +225,7 @@ export default function HomePage() {
 
               <div className="flex w-full flex-col pt-20 mt-20 gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <NeonButton
-                  className="w-full border border-neon-pink/80 bg-black/40 px-6 py-3 text-sm sm:text-base font-semibold uppercase tracking-[0.32em] text-neon-pink shadow-[0_0_25px_rgba(255,75,255,0.22)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto"
+                  className="w-full border border-neon-pink/80 bg-black/40 px-6 py-3 text-sm sm:text-base font-semibold uppercase tracking-[0.32em] text-neon-pink shadow-[0_0_25px_rgba(92,255,181,0.22)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto"
                   href="/menu"
                 >
                   View Menu
@@ -251,7 +266,7 @@ export default function HomePage() {
                     style={{
                       color: "#ffffff",
                       textShadow:
-                        "0 0 10px rgba(75, 225, 255, 0.8), 0 0 20px rgba(75, 225, 255, 0.6), 0 0 30px rgba(95, 125, 255, 0.5), 0 0 40px rgba(255, 75, 255, 0.3)",
+                        "0 0 10px rgba(75, 225, 255, 0.8), 0 0 20px rgba(75, 225, 255, 0.6), 0 0 30px rgba(95, 125, 255, 0.5), 0 0 40px rgba(92, 255, 181, 0.3)",
                     }}
                   >
                     Carolina Luminary Lounge
@@ -269,7 +284,7 @@ export default function HomePage() {
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                   <NeonButton
-                    className="w-full border border-neon-pink/80 bg-black/40 px-8 py-3 text-sm sm:text-base font-semibold uppercase tracking-[0.4em] text-neon-pink shadow-[0_0_25px_rgba(255,75,255,0.3)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto"
+                    className="w-full border border-neon-pink/80 bg-black/40 px-8 py-3 text-sm sm:text-base font-semibold uppercase tracking-[0.4em] text-neon-pink shadow-[0_0_25px_rgba(92,255,181,0.3)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto"
                     href="/menu"
                   >
                     View Menu
@@ -410,45 +425,45 @@ export default function HomePage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                name: "Midnight Mocha",
-                desc: "Espresso, dark chocolate, smoked vanilla cream",
-                price: "From ₹450",
-                image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80",
-              },
-              {
-                name: "Luminary Tonic",
-                desc: "Botanical gin, yuzu cordial, tonic mist",
+                name: "Carolina Chicken Tikka",
+                desc: "Charcoal-kissed, house-spiced, served with mint yoghurt",
                 price: "From ₹650",
-                image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=800&q=80",
+                image: "/carolina%20images/food/Carolina%20Chicken%20Tikka.jpg",
               },
               {
-                name: "Stargazer Tart",
-                desc: "Citrus curd, candied hibiscus, sable crust",
-                price: "From ₹550",
-                image: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80",
+                name: "Cheesy Herby Pasta",
+                desc: "Creamy sauce, fresh herbs, garlic bread on the side",
+                price: "From ₹590",
+                image: "/carolina%20images/food/Cheesy%20Herby%20Pasta%20with%20Garlic%20Bread.jpg",
               },
               {
-                name: "Neon Negroni",
-                desc: "Classic with a luminescent twist",
-                price: "From ₹600",
-                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+                name: "Beyond Greens Salad",
+                desc: "Crunchy greens, feta, citrus, and toasted seeds",
+                price: "From ₹520",
+                image: "/carolina%20images/food/Beyond%20Greens%20Salad.jpg",
               },
               {
-                name: "Rooftop Risotto",
-                desc: "Saffron-infused with seasonal vegetables",
-                price: "From ₹750",
-                image: "https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80",
+                name: "Chili Garlic Noodles",
+                desc: "Wok-tossed heat with crunchy veggies and sesame",
+                price: "From ₹540",
+                image: "/carolina%20images/food/Chili%20Garlic%20Noodles.jpg",
               },
               {
-                name: "Lounge Charcuterie",
-                desc: "Artisanal selection with neon accompaniments",
-                price: "From ₹950",
-                image: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=800&q=80",
+                name: "Dahi Kebab",
+                desc: "Silky yoghurt kebabs with spiced crust and chutney",
+                price: "From ₹480",
+                image: "/carolina%20images/food/Dahi%20Kebab.jpg",
+              },
+              {
+                name: "Carolina Burger Bite",
+                desc: "Stacked, cheesy, shareable lounge favorite",
+                price: "From ₹620",
+                image: "/carolina%20images/food/Carolina%20Lounge%20Take%20a%20Bite%20Share%20the%20Love.webp",
               },
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="group fade-up overflow-hidden rounded-lg border border-neon-pink/20 bg-black/40 transition-all hover:scale-[1.02] hover:border-neon-pink/40 hover:shadow-[0_0_20px_rgba(255,75,255,0.18)]"
+                className="group fade-up overflow-hidden rounded-lg border border-neon-pink/20 bg-black/40 transition-all hover:scale-[1.02] hover:border-neon-pink/40 hover:shadow-[0_0_20px_rgba(92,255,181,0.18)]"
               >
                 <div className="relative h-40 overflow-hidden">
                   <Image
@@ -631,7 +646,7 @@ export default function HomePage() {
           <p className="mb-8 text-sm text-neutral-400 sm:text-base">Reserve your table and experience Jaipur&apos;s most luminous rooftop lounge.</p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <NeonButton className="w-full border border-neon-pink/80 bg-black/40 px-10 py-3 text-sm font-semibold uppercase tracking-[0.32em] text-neon-pink shadow-[0_0_25px_rgba(255,75,255,0.22)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto" href="/reservations">
+            <NeonButton className="w-full border border-neon-pink/80 bg-black/40 px-10 py-3 text-sm font-semibold uppercase tracking-[0.32em] text-neon-pink shadow-[0_0_25px_rgba(92,255,181,0.22)] transition hover:border-neon-pink hover:bg-neon-pink/15 hover:text-white sm:w-auto" href="/reservations">
               Reserve a Table
             </NeonButton>
 

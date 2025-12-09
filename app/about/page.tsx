@@ -105,7 +105,7 @@ export default function AboutPage() {
           <div className="mt-5 flex items-center gap-4">
             <a className="text-sm text-emerald-300" href="#" aria-label="Chef Instagram">IG</a>
             <a className="text-sm text-blue-300" href="#" aria-label="Chef Twitter">TT</a>
-            <a className="text-sm text-pink-300" href="#" aria-label="Chef YouTube">YT</a>
+            <a className="text-sm text-emerald-300" href="#" aria-label="Chef YouTube">YT</a>
           </div>
         </div>
 
