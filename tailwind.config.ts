@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         neon: {
-          pink: "#ff4bff",
+          pink: "#5cffb5",
           teal: "#4be1ff",
           purple: "#7b2eff",
           blue: "#5f7dff",

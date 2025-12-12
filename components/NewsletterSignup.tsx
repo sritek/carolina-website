@@ -40,15 +40,16 @@ export default function NewsletterSignup({
         const json = await res.json().catch(() => ({}));
         throw new Error(json?.message || "Subscription failed. Try again later.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (typeof window !== "undefined" && window.location.hostname === "localhost") {
         setStatus("success");
         setEmail("");
         return;
       }
 
+      const message = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       setStatus("error");
-      setErrorMsg(err?.message || "Something went wrong. Please try again.");
+      setErrorMsg(message);
     }
   }
 

@@ -99,13 +99,13 @@ export default function AboutPage() {
           </p>
 
           <blockquote className="mt-4 border-l-2 border-emerald-300 pl-4 text-neutral-200 italic">
-            "Food is a story — our job is to make it unforgettable."
+            &ldquo;Food is a story — our job is to make it unforgettable.&rdquo;
           </blockquote>
 
           <div className="mt-5 flex items-center gap-4">
             <a className="text-sm text-emerald-300" href="#" aria-label="Chef Instagram">IG</a>
             <a className="text-sm text-blue-300" href="#" aria-label="Chef Twitter">TT</a>
-            <a className="text-sm text-pink-300" href="#" aria-label="Chef YouTube">YT</a>
+            <a className="text-sm text-emerald-300" href="#" aria-label="Chef YouTube">YT</a>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function AboutPage() {
           </li>
           <li>
             <div className="text-sm text-emerald-300">2021</div>
-            <div className="mt-1 text-sm">Launched private dining experiences and Chef's Table seatings.</div>
+            <div className="mt-1 text-sm">Launched private dining experiences and Chef&apos;s Table seatings.</div>
           </li>
           <li>
             <div className="text-sm text-emerald-300">2023</div>

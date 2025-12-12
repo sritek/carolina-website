@@ -18,7 +18,7 @@ export default function Footer() {
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 20% 20%, rgba(79,209,197,0.15), transparent 45%), radial-gradient(circle at 80% 0%, rgba(255,75,255,0.12), transparent 40%), radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08), transparent 35%)",
+            "radial-gradient(circle at 20% 20%, rgba(79,209,197,0.15), transparent 45%), radial-gradient(circle at 80% 0%, rgba(92,255,181,0.12), transparent 40%), radial-gradient(circle at 50% 80%, rgba(255,255,255,0.08), transparent 35%)",
         }}
       />
 

@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Sparkles } from "lucide-react";
 
 const primaryNav = [
   { href: "/", label: "Home" },
@@ -14,29 +16,78 @@ const primaryNav = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [invert, setInvert] = useState(false);
+
+  const neonBlue = "#00B8FF";
+  const neonGreen = "#2EDC0F";
+  const blueShadow = "0 0 5px #00B8FF, 0 0 15px #00B8FF, 0 0 30px #00B8FF";
+  const greenShadow = "0 0 5px #2EDC0F, 0 0 15px #2EDC0F, 0 0 30px #2EDC0F";
+
+  const navFg = invert ? neonBlue : neonGreen;
+  const navHover = invert ? neonGreen : neonBlue;
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--neon-green", invert ? neonBlue : neonGreen);
+    root.style.setProperty("--neon-blue", invert ? neonGreen : neonBlue);
+    root.style.setProperty("--neon-hover", invert ? neonGreen : neonBlue);
+    root.style.setProperty("--neon-shadow-color", invert ? "rgba(0,229,255,0.65)" : "rgba(57,255,20,0.65)");
+    root.style.setProperty("--neon-shadow-green", invert ? "rgba(0,229,255,0.65)" : "rgba(57,255,20,0.65)");
+    root.style.setProperty("--neon-shadow-blue", invert ? "rgba(57,255,20,0.65)" : "rgba(0,229,255,0.65)");
+    root.style.setProperty("--neon-text-shadow-blue", blueShadow);
+    root.style.setProperty("--neon-text-shadow-green", greenShadow);
+  }, [invert, neonBlue, neonGreen, blueShadow, greenShadow]);
 
   return (
-    <header className="relative z-40 border-b border-white/10 bg-black/90 backdrop-blur-xl">
+    <header
+      className="relative z-40 border-b border-white/10 bg-black/90 backdrop-blur-xl"
+      style={{
+        ["--nav-fg" as string]: navFg,
+        ["--nav-hover" as string]: navHover,
+      }}
+    >
       {/* DESKTOP HEADER (unchanged) */}
       <div className="mx-auto hidden max-w-7xl items-center justify-between px-6 py-6 lg:flex">
-        <Link
-          href="/"
-          className="text-sm font-semibold uppercase tracking-[0.38em] text-neon-teal drop-shadow-[0_0_6px_rgba(0,255,255,0.4)]"
-        >
-          Carolina · The Luminary Lounge
+        <Link href="/" className="flex items-center pt-2" aria-label="Carolina home">
+          <div className="relative h-10 w-[195px] overflow-hidden sm:h-11 sm:w-[260px] md:h-16 md:w-[300px]">
+            <Image
+              src="/carolina%20logo%20.png"
+              alt="Carolina · The Luminary Lounge"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 195px, (max-width: 1024px) 260px, 300px"
+              priority
+            />
+          </div>
         </Link>
 
-        <nav className="flex items-center gap-8 text-sm font-medium text-neutral-100/80">
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="transition-colors hover:text-neon-teal hover:drop-shadow-[0_0_8px_rgba(75,225,255,0.6)]"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav className="flex items-center gap-8 text-sm font-medium text-neutral-100/80">
+            {primaryNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-colors hover:text-[var(--nav-hover)]"
+                style={{ color: "var(--nav-fg)" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <button
+            type="button"
+            onClick={() => setInvert((v) => !v)}
+            className="group relative overflow-hidden rounded-full border border-white/15 bg-black/40 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] transition hover:border-[var(--nav-hover)] hover:text-[var(--nav-hover)]"
+            style={{ color: "var(--nav-fg)", boxShadow: "0 0 12px rgba(0,0,0,0.45)" }}
+            aria-label="Invert neon colors"
+          >
+            <span className="absolute inset-0 opacity-70 blur-md transition duration-300 group-hover:opacity-100" style={{ background: "radial-gradient(circle at 50% 50%, rgba(0,255,200,0.15), transparent 60%)" }} />
+            <span className="relative z-10 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.35)]" />
+              Invert
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* MOBILE HEADER */}
@@ -59,12 +110,31 @@ export default function Header() {
         </button>
 
         {/* CAROLINA (right) */}
-        <Link
-          href="/"
-          className="text-xs font-semibold uppercase tracking-[0.35em] text-neon-teal drop-shadow-[0_0_6px_rgba(0,255,255,0.4)]"
-        >
-          CAROLINA
+        <Link href="/" className="flex items-center pt-2" aria-label="Carolina home">
+          <div className="relative h-9 w-[170px] overflow-hidden sm:h-10 sm:w-[190px]">
+            <Image
+              src="/carolina%20logo%20.png"
+              alt="Carolina · The Luminary Lounge"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 640px) 170px, 190px"
+              priority
+            />
+          </div>
         </Link>
+        <button
+          type="button"
+          onClick={() => setInvert((v) => !v)}
+          className="ml-3 group relative overflow-hidden rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] transition hover:border-[var(--nav-hover)] hover:text-[var(--nav-hover)]"
+          style={{ color: "var(--nav-fg)", boxShadow: "0 0 10px rgba(0,0,0,0.4)" }}
+          aria-label="Invert neon colors"
+        >
+          <span className="absolute inset-0 opacity-70 blur-md transition duration-300 group-hover:opacity-100" style={{ background: "radial-gradient(circle at 50% 50%, rgba(0,255,200,0.15), transparent 60%)" }} />
+          <span className="relative z-10 flex items-center gap-1.5">
+            <Sparkles className="h-4 w-4 drop-shadow-[0_0_8px_rgba(255,255,255,0.35)]" />
+            Invert
+          </span>
+        </button>
       </div>
 
       {/* MOBILE SIDEBAR */}
@@ -117,7 +187,8 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="text-white text-base tracking-wide"
+                  className="text-base tracking-wide transition-colors hover:text-[var(--nav-hover)]"
+                  style={{ color: "var(--nav-fg)" }}
                 >
                   {item.label}
                 </Link>
